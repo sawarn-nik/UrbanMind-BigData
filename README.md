@@ -25,14 +25,15 @@ problem, so the whole data pipeline runs on the Hadoop ecosystem in a **Lambda a
  zone lookup    │                                 joins, congestion by zone (ORC),                       │
                 │                                 index            8 analytics queries                   │
                 └──────────────────────────────────────────────────────────────────────┬─────────────────┘
-                                                                     serving profile   │ (typical speed per
-                ┌──────────────────────── SPEED LAYER (live) ──────────────────────────▼─ zone/weekday/hour)
- July trips     │                                                                                        │
- (replayed) ────┼─► Python producers ─► Kafka ─► Spark Structured Streaming ─► Parquet on HDFS ─► Dashboard
- Kolkata RSS /  │                        trips.live   1 h windows, 15 min slide,                         │
- TomTom feeds ──┤                        traffic.events  10 min watermark,                               │
-                │                                     live congestion index vs normal                    │
-                └────────────────────────────────────────────────────────────────────────────────────────┘
+                                                                     serving profile   │ (typical speed per zone/weekday/hour)
+                                                                                       │     
+                ┌──────────────────────── SPEED LAYER (live) ──────────────────────────▼───────────────────┐
+ July trips     │                                                                                          │
+ (replayed) ────┼─► Python producers ─► Kafka ─► Spark Structured Streaming ─► Parquet on HDFS ─► Dashboard│
+ Kolkata RSS /  │                        trips.live   1 h windows, 15 min slide,                           │
+ TomTom feeds ──┤                        traffic.events  10 min watermark,                                 │
+                │                                     live congestion index vs normal                      │
+                └──────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 An editable diagram is in [`bigdata/docs/urbanmind_architecture.excalidraw`](bigdata/docs/urbanmind_architecture.excalidraw)
