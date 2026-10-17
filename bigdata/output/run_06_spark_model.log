@@ -1,0 +1,207 @@
+== Spark MLlib training
+[spark] feature rows: 237,878  zones: 176
+[spark] train rows (Jan-May): 196,098   test rows (June): 41,780
+[spark] training Linear Regression ...
+[spark] training Gradient-Boosted Trees (60 trees, depth 6) ...
+[spark] baseline_hist_avg    RMSE 2.263 mph   MAE 1.568 mph   R2 0.784
+[spark] linear_regression    RMSE 2.181 mph   MAE 1.466 mph   R2 0.799
+[spark] gbt                  RMSE 2.196 mph   MAE 1.475 mph   R2 0.796
+[spark] level baseline_hist_avg accuracy 0.737   F1 0.737
+[spark] level gbt            accuracy 0.760   F1 0.761
+[spark] model -> hdfs://hadoop:9000/urbanmind/models/gbt_speed, predictions -> hdfs://hadoop:9000/urbanmind/predictions/june_2024, metrics -> output/metrics.json
+
+== Scala Spark job
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                
+== Model error by borough, June 2024 hold-out (mph)
+[Stage 1:>                                                          (0 + 2) / 2]                                                                                +---------+----------+--------+-------------+
+|borough  |zone_hours|rmse_gbt|rmse_baseline|
++---------+----------+--------+-------------+
+|Manhattan|35784     |2.03    |2.054        |
+|Queens   |3043      |3.05    |3.492        |
+|Brooklyn |2868      |2.911   |2.935        |
+|Bronx    |85        |3.938   |3.852        |
++---------+----------+--------+-------------+
+== Most congested zones, weekday 5-7 PM (predicted vs actual congestion index)
+java.lang.NullPointerException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.spark.sql.catalyst.encoders.OuterScopes$.$anonfun$getOuterScope$4(OuterScopes.scala:125)
+	at org.apache.spark.sql.catalyst.expressions.objects.NewInstance.$anonfun$doGenCode$1(objects.scala:614)
+	at scala.Option.map(Option.scala:230)
+	at org.apache.spark.sql.catalyst.expressions.objects.NewInstance.doGenCode(objects.scala:614)
+	at org.apache.spark.sql.catalyst.expressions.Expression.$anonfun$genCode$3(Expression.scala:201)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.catalyst.expressions.Expression.genCode(Expression.scala:196)
+	at org.apache.spark.sql.catalyst.expressions.codegen.GenerateSafeProjection$.$anonfun$create$1(GenerateSafeProjection.scala:156)
+	at scala.collection.immutable.List.map(List.scala:293)
+	at org.apache.spark.sql.catalyst.expressions.codegen.GenerateSafeProjection$.create(GenerateSafeProjection.scala:153)
+	at org.apache.spark.sql.catalyst.expressions.codegen.GenerateSafeProjection$.create(GenerateSafeProjection.scala:39)
+	at org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator.generate(CodeGenerator.scala:1369)
+	at org.apache.spark.sql.catalyst.expressions.SafeProjection$.createCodeGeneratedObject(Projection.scala:171)
+	at org.apache.spark.sql.catalyst.expressions.SafeProjection$.createCodeGeneratedObject(Projection.scala:168)
+	at org.apache.spark.sql.catalyst.expressions.CodeGeneratorWithInterpretedFallback.createObject(CodeGeneratorWithInterpretedFallback.scala:50)
+	at org.apache.spark.sql.catalyst.expressions.SafeProjection$.create(Projection.scala:194)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder$Deserializer.apply(ExpressionEncoder.scala:186)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder$Deserializer.apply(ExpressionEncoder.scala:179)
+	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+	at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:36)
+	at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:198)
+	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+	at scala.collection.mutable.ArrayOps$ofRef.map(ArrayOps.scala:198)
+	at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4333)
+	at org.apache.spark.sql.Dataset.$anonfun$collect$1(Dataset.scala:3575)
+	at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4323)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+	at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4321)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4321)
+	at org.apache.spark.sql.Dataset.collect(Dataset.scala:3575)
+	at $line14.$read$$iw$$iw$$iw$$iw$$iw$$iw$$iw$$iw.<init>(ZoneReport.scala:51)
+	at $line14.$read$$iw$$iw$$iw$$iw$$iw$$iw$$iw.<init>(ZoneReport.scala:71)
+	at $line14.$read$$iw$$iw$$iw$$iw$$iw$$iw.<init>(ZoneReport.scala:73)
+	at $line14.$read$$iw$$iw$$iw$$iw$$iw.<init>(ZoneReport.scala:75)
+	at $line14.$read$$iw$$iw$$iw$$iw.<init>(ZoneReport.scala:77)
+	at $line14.$read$$iw$$iw$$iw.<init>(ZoneReport.scala:79)
+	at $line14.$read$$iw$$iw.<init>(ZoneReport.scala:81)
+	at $line14.$read$$iw.<init>(ZoneReport.scala:83)
+	at $line14.$read.<init>(ZoneReport.scala:85)
+	at $line14.$read$.<init>(ZoneReport.scala:89)
+	at $line14.$read$.<clinit>(ZoneReport.scala)
+	at $line14.$eval$.$print$lzycompute(ZoneReport.scala:7)
+	at $line14.$eval$.$print(ZoneReport.scala:6)
+	at $line14.$eval.$print(ZoneReport.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at scala.tools.nsc.interpreter.IMain$ReadEvalPrint.call(IMain.scala:747)
+	at scala.tools.nsc.interpreter.IMain$Request.loadAndRun(IMain.scala:1020)
+	at scala.tools.nsc.interpreter.IMain.$anonfun$interpret$1(IMain.scala:568)
+	at scala.reflect.internal.util.ScalaClassLoader.asContext(ScalaClassLoader.scala:36)
+	at scala.reflect.internal.util.ScalaClassLoader.asContext$(ScalaClassLoader.scala:116)
+	at scala.reflect.internal.util.AbstractFileClassLoader.asContext(AbstractFileClassLoader.scala:41)
+	at scala.tools.nsc.interpreter.IMain.loadAndRunReq$1(IMain.scala:567)
+	at scala.tools.nsc.interpreter.IMain.interpret(IMain.scala:594)
+	at scala.tools.nsc.interpreter.IMain.interpret(IMain.scala:564)
+	at scala.tools.nsc.interpreter.ILoop.$anonfun$pasteCommand$11(ILoop.scala:795)
+	at scala.tools.nsc.interpreter.IMain.withLabel(IMain.scala:111)
+	at scala.tools.nsc.interpreter.ILoop.interpretCode$1(ILoop.scala:795)
+	at scala.tools.nsc.interpreter.ILoop.pasteCommand(ILoop.scala:801)
+	at org.apache.spark.repl.SparkILoop.$anonfun$process$8(SparkILoop.scala:177)
+	at org.apache.spark.repl.SparkILoop.$anonfun$process$8$adapted(SparkILoop.scala:176)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at org.apache.spark.repl.SparkILoop.loadInitFiles$1(SparkILoop.scala:176)
+	at org.apache.spark.repl.SparkILoop.$anonfun$process$4(SparkILoop.scala:166)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.tools.nsc.interpreter.ILoop.$anonfun$mumly$1(ILoop.scala:166)
+	at scala.tools.nsc.interpreter.IMain.beQuietDuring(IMain.scala:206)
+	at scala.tools.nsc.interpreter.ILoop.mumly(ILoop.scala:163)
+	at org.apache.spark.repl.SparkILoop.loopPostInit$1(SparkILoop.scala:153)
+	at org.apache.spark.repl.SparkILoop.$anonfun$process$10(SparkILoop.scala:221)
+	at org.apache.spark.repl.SparkILoop.withSuppressedSettings$1(SparkILoop.scala:189)
+	at org.apache.spark.repl.SparkILoop.startup$1(SparkILoop.scala:201)
+	at org.apache.spark.repl.SparkILoop.process(SparkILoop.scala:236)
+	at org.apache.spark.repl.Main$.doMain(Main.scala:78)
+	at org.apache.spark.repl.Main$.main(Main.scala:58)
+	at org.apache.spark.repl.Main.main(Main.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.spark.deploy.JavaMainApplication.start(SparkApplication.scala:52)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:1029)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:194)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:217)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1120)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1129)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+org.apache.spark.SparkRuntimeException: Error while decoding: java.lang.NullPointerException
+newInstance(class ZoneCongestion).
+  at org.apache.spark.sql.errors.QueryExecutionErrors$.expressionDecodingError(QueryExecutionErrors.scala:1406)
+  at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder$Deserializer.apply(ExpressionEncoder.scala:191)
+  at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder$Deserializer.apply(ExpressionEncoder.scala:179)
+  at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+  at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:36)
+  at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:33)
+  at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:198)
+  at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+  at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+  at scala.collection.mutable.ArrayOps$ofRef.map(ArrayOps.scala:198)
+  at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4333)
+  at org.apache.spark.sql.Dataset.$anonfun$collect$1(Dataset.scala:3575)
+  at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4323)
+  at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+  at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4321)
+  at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+  at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+  at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+  at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+  at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+  at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4321)
+  at org.apache.spark.sql.Dataset.collect(Dataset.scala:3575)
+  ... 60 elided
+Caused by: java.lang.NullPointerException
+  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  at java.lang.reflect.Method.invoke(Method.java:498)
+  at org.apache.spark.sql.catalyst.encoders.OuterScopes$.$anonfun$getOuterScope$4(OuterScopes.scala:125)
+  at org.apache.spark.sql.catalyst.expressions.objects.NewInstance.$anonfun$constructor$3(objects.scala:572)
+  at scala.Option.map(Option.scala:230)
+  at org.apache.spark.sql.catalyst.expressions.objects.NewInstance.constructor$lzycompute(objects.scala:571)
+  at org.apache.spark.sql.catalyst.expressions.objects.NewInstance.constructor(objects.scala:564)
+  at org.apache.spark.sql.catalyst.expressions.objects.NewInstance.eval(objects.scala:600)
+  at org.apache.spark.sql.catalyst.expressions.InterpretedSafeProjection.apply(InterpretedSafeProjection.scala:115)
+  at org.apache.spark.sql.catalyst.expressions.InterpretedSafeProjection.apply(InterpretedSafeProjection.scala:32)
+  at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder$Deserializer.apply(ExpressionEncoder.scala:188)
+  ... 80 more
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 3.5.3
+
+== Hive over predictions
+q	actual_level	pred_level	n
+P1 confusion	HEAVY	HEAVY	9024
+P1 confusion	HEAVY	LOW	211
+P1 confusion	HEAVY	MODERATE	3065
+P1 confusion	LOW	HEAVY	69
+P1 confusion	LOW	LOW	11593
+P1 confusion	LOW	MODERATE	2230
+P1 confusion	MODERATE	HEAVY	1585
+P1 confusion	MODERATE	LOW	2860
+P1 confusion	MODERATE	MODERATE	11143
+q	hr	mae_gbt	mae_baseline
+P2	0	1.544	1.616
+P2	1	1.555	1.59
+P2	2	1.842	1.816
+P2	3	2.386	2.303
+P2	4	3.052	2.922
+P2	5	3.223	3.132
+P2	6	2.459	2.325
+P2	7	1.962	1.878
+P2	8	1.744	1.684
+P2	9	1.48	1.566
+P2	10	1.314	1.432
+P2	11	1.348	1.405
+P2	12	1.261	1.387
+P2	13	1.206	1.369
+P2	14	1.193	1.317
+P2	15	1.11	1.269
+P2	16	1.086	1.277
+P2	17	1.046	1.275
+P2	18	0.997	1.195
+P2	19	1.095	1.306
+P2	20	1.094	1.262
+P2	21	1.154	1.358
+P2	22	1.253	1.364
+P2	23	1.421	1.594

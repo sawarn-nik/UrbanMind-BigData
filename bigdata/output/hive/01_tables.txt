@@ -1,0 +1,16 @@
+zone_id	borough	zone	dt	hr	dow	is_weekend	trips	avg_speed	temp_c	precip_mm	freeflow	congestion_index	level	month
+zone_id	borough	zone	hr	avg_speed	avg_ci	trips
+tab_name
+congestion
+raw_trips
+weekday_peak
+zone_hour_features
+zone_hour_mr
+zones
+partition
+month=2024-01
+month=2024-02
+month=2024-03
+month=2024-04
+month=2024-05
+month=2024-06

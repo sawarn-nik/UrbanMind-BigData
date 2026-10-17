@@ -1,0 +1,10 @@
+[spark] feature rows: 237,878  zones: 176
+[spark] train rows (Jan-May): 196,098   test rows (June): 41,780
+[spark] training Linear Regression ...
+[spark] training Gradient-Boosted Trees (60 trees, depth 6) ...
+[spark] baseline_hist_avg    RMSE 2.263 mph   MAE 1.568 mph   R2 0.784
+[spark] linear_regression    RMSE 2.181 mph   MAE 1.466 mph   R2 0.799
+[spark] gbt                  RMSE 2.196 mph   MAE 1.475 mph   R2 0.796
+[spark] level baseline_hist_avg accuracy 0.737   F1 0.737
+[spark] level gbt            accuracy 0.760   F1 0.761
+[spark] model -> hdfs://hadoop:9000/urbanmind/models/gbt_speed, predictions -> hdfs://hadoop:9000/urbanmind/predictions/june_2024, metrics -> output/metrics.json

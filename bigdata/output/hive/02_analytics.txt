@@ -1,0 +1,61 @@
+q	trips	total_miles
+Q1 raw trips	20332093	9.5659761E7
+q	hr	weekday_mph	weekend_mph	weekday_ci
+Q2	0	15.82	13.94	0.172
+Q2	1	16.5	14.44	0.136
+Q2	2	17.23	15.4	0.108
+Q2	3	19.12	16.83	0.062
+Q2	4	23.11	19.28	0.028
+Q2	5	21.64	22.62	0.039
+Q2	6	16.71	21.59	0.126
+Q2	7	12.74	19.77	0.303
+Q2	8	10.89	17.62	0.402
+Q2	9	10.45	15.48	0.431
+Q2	10	10.25	13.99	0.448
+Q2	11	10.02	12.85	0.461
+Q2	12	10.24	12.13	0.449
+Q2	13	10.49	11.78	0.434
+Q2	14	10.1	11.58	0.455
+Q2	15	9.67	11.31	0.477
+Q2	16	9.77	11.06	0.475
+Q2	17	9.76	10.96	0.474
+Q2	18	10.49	11.13	0.435
+Q2	19	11.72	11.64	0.373
+Q2	20	12.6	12.27	0.331
+Q2	21	13.15	12.83	0.3
+Q2	22	13.66	13.39	0.27
+Q2	23	14.35	14.11	0.235
+q	zone	borough	peak_mph	peak_ci	trips
+Q3	Midtown Center	Manhattan	8.37	0.621	197098
+Q3	Times Sq/Theatre District	Manhattan	8.89	0.581	106558
+Q3	Midtown East	Manhattan	8.73	0.581	139630
+Q3	Midtown North	Manhattan	8.6	0.578	108893
+Q3	UN/Turtle Bay South	Manhattan	9.65	0.572	43826
+Q3	Murray Hill	Manhattan	8.94	0.563	101856
+Q3	Yorkville East	Manhattan	11.05	0.54	37742
+Q3	Upper East Side North	Manhattan	9.63	0.524	138640
+Q3	Flatiron	Manhattan	8.59	0.517	46973
+Q3	Sutton Place/Turtle Bay North	Manhattan	9.26	0.516	55766
+q	borough	zone_hours	trips	avg_mph	avg_ci	pct_heavy
+Q4	Manhattan	210787	17663381	12.4	0.327	29.8
+Q4	Queens	15891	1620927	20.59	0.279	20.9
+Q4	Brooklyn	10833	86450	12.28	0.254	16.0
+Q4	Bronx	367	2104	13.73	0.212	12.0
+q	weather	zone_hours	avg_mph	avg_ci
+Q5	dry	126796	10.85	0.398
+Q5	rain	11697	10.2	0.432
+q	level	zone_hours
+Q6 March	HEAVY	11146
+Q6 March	LOW	14206
+Q6 March	MODERATE	15626
+Explain
+{"input_tables":[{"tablename":"urbanmind@congestion","tabletype":"MANAGED_TABLE"}],"input_partitions":[{"partitionName":"urbanmind@congestion@month=2024-03"}]}
+q	zones_in_sample	est_ci
+Q7 sample	21	0.33
+q	month	trips	avg_mph	avg_ci
+Q8	2024-01	2819661	13.28	0.31
+Q8	2024-02	2857285	13.06	0.318
+Q8	2024-03	3391307	13.03	0.316
+Q8	2024-04	3366640	12.94	0.319
+Q8	2024-05	3561644	12.61	0.335
+Q8	2024-06	3376325	12.83	0.324

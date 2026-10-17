@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- Embedded Derby metastore, kept on the persistent /data volume -->
+  <property><name>javax.jdo.option.ConnectionURL</name><value>jdbc:derby:;databaseName=/data/metastore/metastore_db;create=true</value></property>
+  <property><name>javax.jdo.option.ConnectionDriverName</name><value>org.apache.derby.jdbc.EmbeddedDriver</value></property>
+  <property><name>hive.metastore.warehouse.dir</name><value>/user/hive/warehouse</value></property>
+  <property><name>hive.metastore.schema.verification</name><value>false</value></property>
+  <property><name>hive.exec.dynamic.partition.mode</name><value>nonstrict</value></property>
+  <property><name>hive.exec.max.dynamic.partitions</name><value>2000</value></property>
+  <property><name>hive.exec.max.dynamic.partitions.pernode</name><value>2000</value></property>
+  <property><name>hive.cli.print.header</name><value>true</value></property>
+  <property><name>hive.execution.engine</name><value>mr</value></property>
+  <property><name>hive.exec.scratchdir</name><value>/tmp/hive</value></property>
+  <property><name>hive.exec.local.scratchdir</name><value>/data/tmp/hive-local</value></property>
+  <property><name>hive.downloaded.resources.dir</name><value>/data/tmp/hive-resources</value></property>
+  <property><name>hive.querylog.location</name><value>/data/tmp/hive-querylog</value></property>
+</configuration>

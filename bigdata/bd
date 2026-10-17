@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# UrbanMind big-data helper. Run from anywhere:  ./bigdata/bd <command>
+#   up            start (builds the image on first run) the Hadoop/Hive/Pig/Spark node and Kafka
+#   down          stop everything (HDFS data is kept in a Docker volume)
+#   reset         stop everything AND delete HDFS/metastore data
+#   rebuild       force a rebuild of the image (slow: downloads Hadoop/Hive/Pig)
+#   shell         open a bash shell inside the big-data node
+#   run <step>    run one pipeline step, e.g. ./bd run 03   (see scripts/)
+#   all           run the whole batch pipeline (steps 01 to 06)
+#   status        show running daemons and what is in HDFS
+set -e
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin:/usr/local/bin"
+cd "$(dirname "$0")"
+C=um-hadoop
+TTY=$([ -t 0 ] && echo -it)
+
+case "$1" in
+  up)     docker compose up -d          # builds the image only if it does not exist yet
+          echo "waiting for HDFS..."; until docker exec $C hdfs dfs -test -d /urbanmind 2>/dev/null; do sleep 3; done
+          echo "ready. HDFS http://localhost:9870  YARN http://localhost:8088" ;;
+  down)   docker compose down ;;
+  rebuild) docker compose build && docker compose up -d ;;
+  reset)  docker compose down -v ;;
+  shell)  docker exec -it $C bash ;;
+  run)    script=$(ls scripts | grep "^$2" | head -1)
+          [ -z "$script" ] && { echo "no step $2 in scripts/"; exit 1; }
+          case "$script" in
+            *.py) docker exec $TTY $C python3 /workspace/scripts/$script "${@:3}" ;;
+            *)    docker exec $TTY $C bash /workspace/scripts/$script "${@:3}" ;;
+          esac ;;
+  all)    for s in 01 02 03 04 05 06; do "$0" run $s; done ;;
+  status) docker exec $C bash -c 'jps; echo; hdfs dfs -du -h /urbanmind' ;;
+  *)      sed -n 2,10p "$0" ;;
+esac

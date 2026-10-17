@@ -1,0 +1,202 @@
+26/10/16 19:46:15 INFO SparkContext: Running Spark version 3.5.3
+26/10/16 19:46:15 INFO SparkContext: OS info Linux, 7.0.14-linuxkit, aarch64
+26/10/16 19:46:15 INFO SparkContext: Java version 1.8.0_504
+26/10/16 19:46:15 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/16 19:46:15 INFO ResourceUtils: ==============================================================
+26/10/16 19:46:15 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/10/16 19:46:15 INFO ResourceUtils: ==============================================================
+26/10/16 19:46:15 INFO SparkContext: Submitted application: UrbanMind live congestion
+26/10/16 19:46:15 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/10/16 19:46:15 INFO ResourceProfile: Limiting resource is cpu
+26/10/16 19:46:15 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/10/16 19:46:15 INFO SecurityManager: Changing view acls to: root
+26/10/16 19:46:15 INFO SecurityManager: Changing modify acls to: root
+26/10/16 19:46:15 INFO SecurityManager: Changing view acls groups to: 
+26/10/16 19:46:15 INFO SecurityManager: Changing modify acls groups to: 
+26/10/16 19:46:15 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+26/10/16 19:46:15 INFO Utils: Successfully started service 'sparkDriver' on port 46187.
+26/10/16 19:46:15 INFO SparkEnv: Registering MapOutputTracker
+26/10/16 19:46:16 INFO SparkEnv: Registering BlockManagerMaster
+26/10/16 19:46:16 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/10/16 19:46:16 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/10/16 19:46:16 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/10/16 19:46:16 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-7c81c92b-777c-45ac-bffa-ea7129819b45
+26/10/16 19:46:16 INFO MemoryStore: MemoryStore started with capacity 620.1 MiB
+26/10/16 19:46:16 INFO SparkEnv: Registering OutputCommitCoordinator
+26/10/16 19:46:16 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/10/16 19:46:16 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/10/16 19:46:16 INFO Executor: Starting executor ID driver on host hadoop
+26/10/16 19:46:16 INFO Executor: OS info Linux, 7.0.14-linuxkit, aarch64
+26/10/16 19:46:16 INFO Executor: Java version 1.8.0_504
+26/10/16 19:46:16 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/10/16 19:46:16 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@10437de6 for default.
+26/10/16 19:46:16 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 32917.
+26/10/16 19:46:16 INFO NettyBlockTransferService: Server created on hadoop:32917
+26/10/16 19:46:16 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/10/16 19:46:16 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, hadoop, 32917, None)
+26/10/16 19:46:16 INFO BlockManagerMasterEndpoint: Registering block manager hadoop:32917 with 620.1 MiB RAM, BlockManagerId(driver, hadoop, 32917, None)
+26/10/16 19:46:16 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, hadoop, 32917, None)
+26/10/16 19:46:16 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, hadoop, 32917, None)
+[stream] serving profile loaded: 13,353 zone/weekday/hour rows
+26/10/16 19:46:21 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+26/10/16 19:46:22 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[stream] running: trips.live -> zone windows, traffic.events -> events
+26/10/16 19:46:22 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+26/10/16 19:46:22 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+26/10/16 19:46:30 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:46:31 WARN HDFSBackedStateStoreProvider: The state for version 1 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 1: window 2024-07-01 06:00  15 zones scored
+26/10/16 19:46:32 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 5000 milliseconds, but spent 5958 milliseconds
+26/10/16 19:46:35 WARN HDFSBackedStateStoreProvider: The state for version 2 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 2: window 2024-07-01 06:30  36 zones scored
+26/10/16 19:46:39 WARN HDFSBackedStateStoreProvider: The state for version 3 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 3: window 2024-07-01 06:45  38 zones scored
+26/10/16 19:46:42 WARN HDFSBackedStateStoreProvider: The state for version 4 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 4: window 2024-07-01 07:15  39 zones scored
+26/10/16 19:46:47 WARN HDFSBackedStateStoreProvider: The state for version 5 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 5: window 2024-07-01 07:45  40 zones scored
+26/10/16 19:46:53 WARN HDFSBackedStateStoreProvider: The state for version 6 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 6: window 2024-07-01 08:15  43 zones scored
+26/10/16 19:46:57 WARN HDFSBackedStateStoreProvider: The state for version 7 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 7: window 2024-07-01 08:45  46 zones scored
+26/10/16 19:47:02 WARN HDFSBackedStateStoreProvider: The state for version 8 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 8: window 2024-07-01 09:15  45 zones scored
+26/10/16 19:47:08 WARN HDFSBackedStateStoreProvider: The state for version 9 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 9: window 2024-07-01 09:45  48 zones scored
+26/10/16 19:47:13 WARN HDFSBackedStateStoreProvider: The state for version 10 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 10: window 2024-07-01 10:15  45 zones scored
+26/10/16 19:47:17 WARN HDFSBackedStateStoreProvider: The state for version 11 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 11: window 2024-07-01 10:45  41 zones scored
+26/10/16 19:47:22 WARN HDFSBackedStateStoreProvider: The state for version 12 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 12: window 2024-07-01 11:15  43 zones scored
+26/10/16 19:47:28 WARN HDFSBackedStateStoreProvider: The state for version 13 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 13: window 2024-07-01 11:45  43 zones scored
+26/10/16 19:47:33 WARN HDFSBackedStateStoreProvider: The state for version 14 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 14: window 2024-07-01 12:15  46 zones scored
+26/10/16 19:47:35 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 5000 milliseconds, but spent 5005 milliseconds
+26/10/16 19:47:37 WARN HDFSBackedStateStoreProvider: The state for version 15 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 15: window 2024-07-01 12:45  47 zones scored
+26/10/16 19:47:42 WARN HDFSBackedStateStoreProvider: The state for version 16 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 16: window 2024-07-01 13:15  49 zones scored
+26/10/16 19:47:47 WARN HDFSBackedStateStoreProvider: The state for version 17 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 17: window 2024-07-01 13:45  49 zones scored
+26/10/16 19:47:53 WARN HDFSBackedStateStoreProvider: The state for version 18 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 18: window 2024-07-01 14:15  46 zones scored
+26/10/16 19:47:58 WARN HDFSBackedStateStoreProvider: The state for version 19 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 19: window 2024-07-01 14:45  52 zones scored
+26/10/16 19:48:02 WARN HDFSBackedStateStoreProvider: The state for version 20 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 20: window 2024-07-01 15:15  49 zones scored
+26/10/16 19:48:08 WARN HDFSBackedStateStoreProvider: The state for version 21 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 21: window 2024-07-01 15:45  51 zones scored
+26/10/16 19:48:12 WARN HDFSBackedStateStoreProvider: The state for version 22 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 22: window 2024-07-01 16:15  48 zones scored
+26/10/16 19:48:18 WARN HDFSBackedStateStoreProvider: The state for version 23 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 23: window 2024-07-01 16:45  51 zones scored
+26/10/16 19:48:22 WARN HDFSBackedStateStoreProvider: The state for version 24 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 24: window 2024-07-01 17:15  52 zones scored
+26/10/16 19:48:27 WARN HDFSBackedStateStoreProvider: The state for version 25 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 25: window 2024-07-01 17:45  50 zones scored
+26/10/16 19:48:32 WARN HDFSBackedStateStoreProvider: The state for version 26 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 26: window 2024-07-01 18:15  49 zones scored
+26/10/16 19:48:38 WARN HDFSBackedStateStoreProvider: The state for version 27 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 27: window 2024-07-01 18:45  50 zones scored
+26/10/16 19:48:42 WARN HDFSBackedStateStoreProvider: The state for version 28 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 28: window 2024-07-01 19:15  48 zones scored
+26/10/16 19:48:47 WARN HDFSBackedStateStoreProvider: The state for version 29 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 29: window 2024-07-01 19:45  48 zones scored
+26/10/16 19:48:52 WARN HDFSBackedStateStoreProvider: The state for version 30 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 30: window 2024-07-01 20:15  47 zones scored
+26/10/16 19:48:58 WARN HDFSBackedStateStoreProvider: The state for version 31 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 31: window 2024-07-01 20:45  44 zones scored
+26/10/16 19:49:02 WARN HDFSBackedStateStoreProvider: The state for version 32 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 32: window 2024-07-01 21:15  44 zones scored
+26/10/16 19:49:07 WARN HDFSBackedStateStoreProvider: The state for version 33 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 33: window 2024-07-01 21:45  42 zones scored
+26/10/16 19:49:15 WARN HDFSBackedStateStoreProvider: The state for version 34 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 34: window 2024-07-01 22:15  43 zones scored
+26/10/16 19:49:16 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 5000 milliseconds, but spent 6788 milliseconds
+26/10/16 19:49:18 WARN HDFSBackedStateStoreProvider: The state for version 35 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 35: window 2024-07-01 23:00  35 zones scored
+26/10/16 19:49:22 WARN HDFSBackedStateStoreProvider: The state for version 36 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 36: window 2024-07-01 23:15  38 zones scored
+26/10/16 19:49:27 WARN HDFSBackedStateStoreProvider: The state for version 37 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 37: window 2024-07-01 23:45  35 zones scored
+26/10/16 19:49:32 WARN HDFSBackedStateStoreProvider: The state for version 38 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 38: window 2024-07-02 00:00  39 zones scored
+26/10/16 19:49:37 WARN HDFSBackedStateStoreProvider: The state for version 39 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 39: window 2024-07-02 00:30  30 zones scored
+26/10/16 19:49:42 WARN HDFSBackedStateStoreProvider: The state for version 40 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 40: window 2024-07-02 00:45  30 zones scored
+26/10/16 19:49:48 WARN HDFSBackedStateStoreProvider: The state for version 41 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 41: window 2024-07-02 01:15  27 zones scored
+26/10/16 19:49:52 WARN HDFSBackedStateStoreProvider: The state for version 42 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 42: window 2024-07-02 01:30  28 zones scored
+26/10/16 19:50:00 WARN HDFSBackedStateStoreProvider: The state for version 43 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 43: window 2024-07-02 02:00  17 zones scored
+26/10/16 19:50:00 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 5000 milliseconds, but spent 5581 milliseconds
+26/10/16 19:50:02 WARN HDFSBackedStateStoreProvider: The state for version 44 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 44: window 2024-07-02 02:15  14 zones scored
+26/10/16 19:50:08 WARN HDFSBackedStateStoreProvider: The state for version 45 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 45: window 2024-07-02 03:00  10 zones scored
+26/10/16 19:50:12 WARN HDFSBackedStateStoreProvider: The state for version 46 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 46: window 2024-07-02 03:45  9 zones scored
+26/10/16 19:50:16 WARN HDFSBackedStateStoreProvider: The state for version 47 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 47: window 2024-07-02 04:15  16 zones scored
+26/10/16 19:50:22 WARN HDFSBackedStateStoreProvider: The state for version 48 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 48: window 2024-07-02 04:45  21 zones scored
+26/10/16 19:50:27 WARN HDFSBackedStateStoreProvider: The state for version 49 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 49: window 2024-07-02 05:30  27 zones scored
+26/10/16 19:50:33 WARN HDFSBackedStateStoreProvider: The state for version 50 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 50: window 2024-07-02 06:00  31 zones scored
+26/10/16 19:50:36 WARN HDFSBackedStateStoreProvider: The state for version 51 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 51: window 2024-07-02 06:45  31 zones scored
+26/10/16 19:50:40 WARN KafkaDataConsumer: KafkaDataConsumer is not running in UninterruptibleThread. It may hang when KafkaDataConsumer's methods are interrupted because of KAFKA-1894
+26/10/16 19:50:43 WARN HDFSBackedStateStoreProvider: The state for version 52 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 52: window 2024-07-02 07:15  35 zones scored
+26/10/16 19:50:46 WARN HDFSBackedStateStoreProvider: The state for version 53 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 53: window 2024-07-02 07:45  39 zones scored
+26/10/16 19:50:52 WARN HDFSBackedStateStoreProvider: The state for version 54 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 54: window 2024-07-02 08:15  44 zones scored
+26/10/16 19:50:56 WARN HDFSBackedStateStoreProvider: The state for version 55 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 55: window 2024-07-02 08:45  47 zones scored
+26/10/16 19:51:03 WARN HDFSBackedStateStoreProvider: The state for version 56 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 56: window 2024-07-02 09:15  42 zones scored
+26/10/16 19:51:07 WARN HDFSBackedStateStoreProvider: The state for version 57 doesn't exist in loadedMaps. Reading snapshot file and delta files if needed...Note that this is normal for the first batch of starting query.
+[stream] batch 57: window 2024-07-02 09:45  46 zones scored

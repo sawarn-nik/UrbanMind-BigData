@@ -1,0 +1,39 @@
+Deleted /urbanmind/features/zone_hour
+Deleted /urbanmind/features/top_zones
+Success!
+Input(s):
+Successfully read 481723 records (18494692 bytes) from: "/urbanmind/mr/zone_hour"
+Successfully read 265 records (10805 bytes) from: "/urbanmind/ref/zones"
+Successfully read 5112 records (158204 bytes) from: "/urbanmind/ref/weather"
+Output(s):
+Successfully stored 15 records (656 bytes) in: "/urbanmind/features/top_zones"
+Successfully stored 237878 records (24067999 bytes) in: "/urbanmind/features/zone_hour"
+Total records written : 237893
+Total records proactively spilled: 0
+2026-10-16 19:38:21,805 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - Success!
+
+== feature rows: 237878
+== sample features (zone_id borough zone dt hr dow weekend trips speed dur temp precip snow wind freeflow ci level)
+112	Brooklyn	Greenpoint	2024-01-01	0	1	0	5	13.247	20.53	1.9	0.0	0.0	6.3	16.47	0.1957	LOW
+112	Brooklyn	Greenpoint	2024-01-01	1	1	0	18	12.793	19.79	1.8	0.0	0.0	8.9	16.47	0.2233	LOW
+112	Brooklyn	Greenpoint	2024-01-01	2	1	0	13	16.256	20.58	2.8	0.0	0.0	11.4	16.47	0.013	LOW
+112	Brooklyn	Greenpoint	2024-01-01	3	1	0	10	12.872	21.77	2.9	0.0	0.0	9.7	16.47	0.2185	LOW
+112	Brooklyn	Greenpoint	2024-01-01	4	1	0	12	14.816	18.28	2.8	0.0	0.0	8.1	16.47	0.1004	LOW
+cat: Unable to write to output stream.
+
+== busiest zones
+161	Manhattan	Midtown Center	940062	22.09
+237	Manhattan	Upper East Side South	934822	18.1
+132	Queens	JFK Airport	882065	33.24
+236	Manhattan	Upper East Side North	866872	20.25
+162	Manhattan	Midtown East	690424	20.82
+230	Manhattan	Times Sq/Theatre District	672646	21.21
+142	Manhattan	Lincoln Square East	654880	19.07
+186	Manhattan	Penn Station/Madison Sq West	646499	16.67
+138	Queens	LaGuardia Airport	628282	30.21
+163	Manhattan	Midtown North	574353	20.36
+239	Manhattan	Upper West Side South	573601	19.48
+170	Manhattan	Murray Hill	570383	20.43
+234	Manhattan	Union Sq	533878	16.65
+68	Manhattan	East Chelsea	530297	16.57
+48	Manhattan	Clinton East	505793	18.12

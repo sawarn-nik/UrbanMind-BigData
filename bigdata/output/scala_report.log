@@ -1,0 +1,19 @@
+== Model error by borough, June 2024 hold-out (mph)
+|borough  |zone_hours|rmse_gbt|rmse_baseline|
++---------+----------+--------+-------------+
+|Manhattan|35784     |2.03    |2.054        |
+|Queens   |3043      |3.05    |3.492        |
+|Brooklyn |2868      |2.911   |2.935        |
+|Bronx    |85        |3.938   |3.852        |
++---------+----------+--------+-------------+
+== Most congested zones, weekday 5-7 PM (predicted vs actual congestion index)
+ 1. Midtown Center                           Manhattan  predicted 0.644   actual 0.647
+ 2. Midtown East                             Manhattan  predicted 0.601   actual 0.610
+ 3. Midtown North                            Manhattan  predicted 0.599   actual 0.609
+ 4. Times Sq/Theatre District                Manhattan  predicted 0.594   actual 0.605
+ 5. UN/Turtle Bay South                      Manhattan  predicted 0.590   actual 0.589
+ 6. Murray Hill                              Manhattan  predicted 0.583   actual 0.583
+ 7. Yorkville East                           Manhattan  predicted 0.553   actual 0.544
+ 8. Upper East Side North                    Manhattan  predicted 0.546   actual 0.538
+ 9. Flatiron                                 Manhattan  predicted 0.544   actual 0.543
+10. Sutton Place/Turtle Bay North            Manhattan  predicted 0.543   actual 0.551

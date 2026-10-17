@@ -1,0 +1,43 @@
+services:
+  hadoop:
+    build: ./docker
+    image: urbanmind-bigdata:1.0
+    container_name: um-hadoop
+    hostname: hadoop
+    ports:
+      - "9870:9870"   # HDFS NameNode UI
+      - "8088:8088"   # YARN ResourceManager UI
+      - "19888:19888" # MapReduce JobHistory UI
+      - "4040:4040"   # Spark UI (while a Spark job runs)
+      - "8050:8050"   # UrbanMind pipeline dashboard
+    volumes:
+      - .:/workspace
+      - ../app:/urbanmind-app:ro
+      - hdfs-data:/data
+    environment:
+      KAFKA_BOOTSTRAP: kafka:9092
+      TOMTOM_API_KEY: ${TOMTOM_API_KEY:-}
+    depends_on:
+      - kafka
+
+  kafka:
+    image: apache/kafka:3.8.0
+    container_name: um-kafka
+    hostname: kafka
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_NUM_PARTITIONS: 3
+      KAFKA_HEAP_OPTS: "-Xmx512m -Xms256m"
+
+volumes:
+  hdfs-data:
