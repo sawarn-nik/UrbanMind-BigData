@@ -208,7 +208,7 @@ cd app && uvicorn api:app --port 8000
 | Name | Contributions |
 |---|---|
 | **Nikhil Kumar** ([@sawarn-nik](https://github.com/sawarn-nik)) | Architecture, Kafka producers, Spark Structured Streaming, UrbanMind integration, dashboard |
-| **Gaurav Kumar** ([@sawarn-nik](https://github.com/Gaurav200604))| HDFS data loading, MapReduce job, Pig ETL |
+| **Gaurav Kumar** ([@Gaurav200604](https://github.com/Gaurav200604))| HDFS data loading, MapReduce job, Pig ETL |
 | **Abhay Devanand Sawale** | Hive warehouse and analytics, Spark MLlib model and evaluation |
 
 ---
