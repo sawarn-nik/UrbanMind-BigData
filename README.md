@@ -39,7 +39,7 @@ problem, so the whole data pipeline runs on the Hadoop ecosystem in a **Lambda a
 An editable diagram is in [`bigdata/docs/urbanmind_architecture.excalidraw`](bigdata/docs/urbanmind_architecture.excalidraw)
 (open it at [excalidraw.com](https://excalidraw.com)).
 
-![Project Screenshot](images/Untitled-2026-10-16-2320.png)
+![Project Architecture](images/Untitled-2026-10-16-2320.png)
 
 ### How each course module is used
 
