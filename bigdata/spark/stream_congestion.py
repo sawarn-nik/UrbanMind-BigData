@@ -59,7 +59,7 @@ def score_windows(batch, batch_id):
               .withColumn("hr", F.hour("window.start"))
               .withColumn("live_speed", F.round(F.col("miles") / F.col("hours"), 3))
               .drop("window", "miles", "hours")
-              .join(profile, ["zone_id", "dow", "hr"], "left")
+              .join(profile, ["zone_id", "dow", "hr"], "inner")   # only zones the batch layer has a profile for
               .withColumn("congestion_index", F.round(F.greatest(F.lit(0.0), F.least(F.lit(1.0),
                           1 - F.col("live_speed") / F.col("freeflow"))), 4))
               .withColumn("vs_normal", F.round(F.col("live_speed") / F.col("hist_speed"), 3))
