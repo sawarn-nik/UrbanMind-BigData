@@ -20,12 +20,12 @@ problem, so the whole data pipeline runs on the Hadoop ecosystem in a **Lambda a
                 ┌──────────────────────── BATCH LAYER (historical, Jan–Jun 2024) ────────────────────────┐
  NYC TLC trips  │                                                                                        │
  (20.3M rows) ──┼─► HDFS ──► MapReduce on YARN ──► Pig ETL ──────► Hive warehouse ──► Spark MLlib ───────┤
- Open-Meteo     │   raw      trip → zone×hour      free-flow speed,  partitioned by     GBT: next-hour    │
- weather,       │   1.3 GB   speed + trip count   zone & weather   month, bucketed    speed + level     │
+ Open-Meteo     │   raw      trip → zone×hour      free-flow speed,  partitioned by     GBT: next-hour   │
+ weather,       │   1.3 GB   speed + trip count   zone & weather   month, bucketed    speed + level      │
  zone lookup    │                                 joins, congestion by zone (ORC),                       │
-                │                                 index            8 analytics queries                  │
+                │                                 index            8 analytics queries                   │
                 └──────────────────────────────────────────────────────────────────────┬─────────────────┘
-                                                                     serving profile    │ (typical speed per
+                                                                     serving profile   │ (typical speed per
                 ┌──────────────────────── SPEED LAYER (live) ──────────────────────────▼─ zone/weekday/hour)
  July trips     │                                                                                        │
  (replayed) ────┼─► Python producers ─► Kafka ─► Spark Structured Streaming ─► Parquet on HDFS ─► Dashboard
